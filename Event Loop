@@ -1,0 +1,29 @@
+-node.js trabalha com assincronismo.
+-ou seja, permite que você desenvolva um sistema totalmente orientado a eventos(graças ao event-loop).
+
+-event-loop é um mecanismo que utiliza as bibliotecas: libev e libeio.
+-essas bibliotecas são responsáveis por prover a funcionalidade de assíncrono I/O para o Node.js.
+
+-event Loop é basicamente um loop infinito, que em cada iteração, verifica se existem novos eventos em sua fila de eventos. 
+-caso o evento seja assíncrono, ele será enviado para onde deve ser executado, por exemplo: filesystem, network, process, etc.
+
+EventEmitter: é o módulo responsável por emitir eventos.
+
+-quando o código emite um evento, o mesmo é enviado para a fila de eventos para que o event-loop execute-o
+-em seguida, ele retorna o seu resultado em um callback. 
+-o callback geralmente é executado através de uma função de escuta: on(), listen() e outras.
+
+//exemplo com 2 eventos de escuta: http.createServer() e server.listen()
+var http = require('http');
+var server = http.createServer(function(request, response){
+	response.writeHead(200, {"Content-Type": "text/html"});
+	response.write("<h1>Hello World!</h1>");
+	response.end();
+});
+server.listen(3000, function() {
+	console.log("Servidor rodando!");
+});
+
+http.createServer(): o callback desse evento será sempre executado toda vez que um usuário acessar a url desse servidor.
+server.listen(): será executado apenas uma vez pelo event-loop, pois esse evento ocorre quando o servidor é iniciado.
+

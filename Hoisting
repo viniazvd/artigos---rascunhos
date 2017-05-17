@@ -1,0 +1,66 @@
+-Hoist significa levantar ou suspender algo. 
+-Em bom português, significa usar o guindaste para elevar um objeto. 
+-E é isto o que acontece em JavaScript quando declaramos uma variável ou função. Sua declaração é “elevada” para o topo do escopo.
+
+
+Hoisting com variáveis
+-Toda vez que uma variável é definida, sua declaração é hoisted, mas não sua inicialização. 
+-Ou seja, a declaração da variável vai para cima do escopo antes mesmo do código ser executado
+-Porém, não recebe nenhum valor e permanece como undefined.
+
+//exemplo1
+try {
+  console.log(x)
+} catch (e) {
+  console.error('A variável x não foi definida.')
+}
+
+//exemplo2
+try {
+  console.log(x)
+  var x = 2
+} catch (e) {
+  console.error('A variável x não foi definida.')
+}
+
+-exemplo1: vai imprimir o erro dentro do catch, visto que, a variável x não existe.
+-exemplo2: vai imprimir undefined, mesmo tendo a declaração de x depois do comando console.log.
+
+-Note que no exemplo2 ocorreu um hoisting da declaração da variável x, mas não da sua inicialização.
+
+//exemplo3
+try {
+  var a
+  console.log(a)
+  a = 2
+} catch (e) {
+  console.error('a não existe no contexto atual')
+}
+
+-O código acima é baseado no exemplo2, de forma que faça mais sentido para nós.
+-Note que apenas a declaração da variável vai para o topo, mas não sua inicialização. 
+-Esta continua no mesmo lugar em que definimos no nosso código, por isso recebemos um undefined quando tentamos acessar seu valor.
+-Ou seja, APENAS A DECLARAÇÃODE UMA VARIÁVEL É HOISTED, NÃO SUA INICIALIZAÇÃO.
+
+Hoisting com funções
+-No hosting com funções, não só o nome da função é hoisted, mas também o seu corpo.
+
+x()
+function x() {
+  console.log('teste x')
+}
+
+-O código acima irá imprimir teste x sem nenhum erro, mesmo executando uma função antes mesmo de ser definida. 
+-Isso porque tanto o nome da função como seu corpo são hoisted.
+
+x();
+var x = function() {}
+
+-Uma função pode ser declarada também como uma expressão, e quando declarada desta forma, ela obedece a regra de hoisting de variável. 
+-Apenas seu nome será hoisted.
+-No exemplo acima será disparado um erro, nos avisando que undefined não pode ser usado como uma função.
+
+Obs: 
+-O ECMAScript 6 introduz um novo meio de definir variáveis através do let. Com ele, nós temos escopo a nível de bloco.
+-Porém, com o uso do let, não temos hoisting.
+-Ou seja, a declaração da variável não vai para o topo do escopo antes da execução do código.

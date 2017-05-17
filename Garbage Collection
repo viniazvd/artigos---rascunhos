@@ -1,0 +1,31 @@
+Introdução
+-tradução: coletor de sujeira
+
+-é o processo de gerenciamento de memória 
+-tem o trabalho de monitorar a alocação de memória para descobrir quando um pedaço de código não é mais necessário (e liberá-lo).
+-recupera parte da memória que não está sendo mais utilizada por um programa.
+-evita o esgotamento de memória para outros processos.
+
+-linguagens de baixo nível (como C) não utilizam esse processo e deve ser feito de uma forma mais manual. 
+-já no javascript, quando um espaço alocado na memória não é mais utilizado, ele é automaticamente liberado.
+
+Ciclo de vida da memória
+-Alocar a memória que você precisa
+-Utilizar (ler, escrever)
+-Liberar a memória alocada quando não é mais necessária
+
+Alocação no JavaScript
+//exemplos
+var x = 123456;  // aloca memória para um número
+var y = "teste"; // aloca memória para uma string 
+var hoje = new Date(); // aloca memória para um objeto de data
+
+A utilização de valores basicamente significa leitura e escrita em memória alocada. 
+-pode ser feito ao ler ou escrever o valor de uma variável 
+-ou a propriedade de um objeto 
+-ou até mesmo ao passar um argumento para uma função.
+
+Liberar a memória alocada quando não é mais necessária
+-este processo é algo aproximado, já que, saber se um pedaço de memória é necessário é algo 'indecidível'.
+-então o garbage collector do javaScript usa um algoritmo chamado Mark and Sweep. 
+

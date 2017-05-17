@@ -1,0 +1,68 @@
+-todo objeto em javascript tem um protótipo.
+-__proto__: é uma propriedade que referencia para o protótipo do objeto
+
+var homem = {
+	sexo: "masculino"
+};
+
+var x = {
+	nome: "x"
+	idade: 10,
+	__proto__: homem
+};
+
+var y = {
+	nome: "y"
+	idade: 20,
+	__proto__: homem
+};
+
+-ou seja: x e y herdam de homem que herda de object.prototype(que por sua vez, finaliza a cadeia de protótipos).
+
+-__proto__ não é suportada em todos os navegadores, então usamos: Object.setPrototypeOf
+
+var homem = {
+	sexo: "masculino"
+}
+
+var x = {
+	nome: "x"
+	idade: 10
+};
+
+Object.setPrototypeOf(x, homem);
+
+-Podemos também usar o Object.create
+
+var homem = {
+	sexo: "masculino"
+};
+
+var x = Object.create(homem);
+x.nome = "x";
+x.idade = 10;
+
+-shadowing: se no objeto x já existir a propriedade sexo, ele não precisa procurar em outros protótipos.
+
+-prototype: propriedade que só existe em funções e usado quando utilizamos o new. 
+
+var Homem = function () {
+	this.nome = nome;
+	this.idade = idade;
+	//this.sexo = "masculino";
+};
+
+//Homem.prototype.sexo = "masculino";
+var x = new Homem("x", 10);
+
+-note que temos duas linhas comentadas...
+-na primeira: cada objeto criado terá a propriedae sexo. 
+-na segunda: herda a propriedade sexo no seu protótipo(Homem).
+
+-Resumo da ópera: Herança prototípica é uma estratégia para reutilização de comportamento entre objetos.
+
+
+
+
+
+
