@@ -1,0 +1,174 @@
+nodejs 
+-npm install: ler o arquivo package.json, pega as dependencies e faz o downloads dela e coloca os arquivos no node_modules
+-com a instalação dele, ganhamos o npm (gerenciador de pacotes do node)
+-similar ao maven
+-repositorio de bibliotecas do js
+-sudo npm install -g typescript (segundo passo da instalação e configuração do ambiente)
+
+-typescript((ECMA5 + ECMA6) super conjunto do js) > javascript
+-a tipagem de variaveis é feita com o typescript
+
+-sudo npm install -g @angular/cli (terceiro passo da instalação e configuração do ambiente)
+
+package.json
+-todas as libs 
+-similar ao pom.xml?
+
+instalar bootstrap
+-sudo npm install ng2-bootstrap bootstrap --save (jeito abstrato e limpo, sem jquery) 
+-ou colocar a CDN na index
+-é add na package.json automaticamente a lib do bootstrap
+-angular-cli.json: "styles": "{add link do css}"
+
+-sudo npm install --save bootstrap@next
+-add os scripts e styles no angular-cli.json
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+diretivas
+diretivas estruturais
+-exemplos: *ngFor, *ngIf
+
+diretivas de atributos
+-exemplos: ng-class, ng-style
+
+criar um componente
+-ng g c nomeComponente
+-@Component({metadados})
+-responsavel por interagir(qnd apertar um botao) e mostrar informações para o usuário (logica para renderizar o template)
+-fazer o import do Component (@angular/core)
+-prefixo export na class para exportar o componente e declarar no modulo raiz(appModule) @NgModule->declarations
+
+modulo
+-arquivo que vai ajudar na organização da aplicação e a modularizar
+-ng g m nomeModulo
+(metadados)
+-imports: indica quais os outros modulos que queremos importar
+-declarations: declara o component para o modulo(componentes ficam "privados" do modulo)
+-exports: indica quais as declarações do modulo que queremos expor(importar) para outros modulos 
+ 
+providers(fornecedor)
+-declarados no modulo para os serviços
+
+serviço
+-fornece logica de negocio 
+-evita codigo duplicado
+-ng g s nomeServico
+-@Injectable()
+-componente -> serviço -> backend (ou seja, classe para fazer a conexão com o servidor)
+-exemplo: 
+-responsavel pela logica de mostrar informações de uma lista
+-utilitarios para tradução, formatação, etc
+
+injeção de dependencia
+-ao invez de sair de casa para comprar o jornal na banca, fazemos uma assinatura para que entreguem automaticamente.
+-sempre via construtor 
+-constructor(private cursoService: CursoService) 
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+data bind
+-forma de associar informações que estão no componente para o template ou vice-versa
+-<template>  <--- {{valor}}                 {componente} - interpolação 
+-<template>  <--- [propriedade]="valor"     {componente} - propert binding
+-<template>  (evento)="handler" --->        {componente}
+-<template>  <--- [(ngModel)}="propriedade" {componente} - two-way data binding
+
+propert binding
+-<img src="{{ url }}"> ou
+-<img [src]="url">
+-<input type="text" [value]="varvalue" />
+
+eventos
+-para bind de eventos, não usamos o [], mas sim ()
+-exemplo (click)="metodo()"
+
+obs: (click)="metodo($event)"
+-para pegar o valor inputado no input, usamos o $event
+-ou setamos uma variavel local para o elemento(input, p, h1, etc) 
+-<input type="text" #varinput (click)="metodo(varinput.value) />
+
+EventEmitter<>()
+-emitt eventos para que a nossa aplicação escute esses eventos
+-podemos nos inscrever para que sempre que houver mudança, podemos notificar ele escute e faça alguma modificação
+
+subscribe()
+-funciona como o subscribe do youtube
+-ngOnInit(){
+    this.cursoService.emittCurso.subscribe(curso => console.log(curso))
+}
+
+@Input
+-os input propertys tem objetivo diferente das diretivas
+-melhor parar organizar e encapsular 
+-componente pai para passe informações ou eventos para o componente filho
+-pode ser declarado como metadado: inputs ou dentro da class
+-@Input() nome: string = ''
+-<appTeste [nome]="nome"></appTeste>
+
+@Output
+-para expor um evento ou valor
+-para que um componente filho passe informações ou eventos para o componente pai
+-pode ser declarado como metadado: inputs ou dentro da class
+-@Output() mudouValor = new EventEmitter()
+-metodo(){
+    this.mudouValor.emit(this.valor)
+}
+
+@ViewChild(#campoInput)
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+life cycle hooks (ciclo de vida do evento/componente)
+-ngOnChange, ngOnInit, ngOnDestroy, etc...
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+ng lint
+-testa se os codigos do projetos estão de acordo com as boas praticas do style guide 
+ 
+ng teste
+-jasmine para testes unitarios
+-roda todos os arquivos com .spec.ts
+-karma
+
+ng e2e
+-protactor para testes end-to-end(e2e)
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+ng build
+-ng build e ng build --dev são a msm coisa
+-para desenvolvimento
+
+-ng build --prod (precisa do --prod)
+
+build dev x prod
+-a build de dev ainda não é minificado
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+operador elvis ("?")
+-na duvida do valor null, colocar ao final da variavel para evitar erros no browser
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+pipe
+-exemplo: preço {{ preco | number }}
+-pipe puro e impuro
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Single Page Aplication (SPA)
+-muda a pagina ou conteudo sem carregar a pagina (refresh)
+
+
+
+
+
+
+
+
+
+
