@@ -1,0 +1,83 @@
+git init
+-cria um repositorio vazio dentro da pasta que você escolher/estiver
+
+git add
+-adiciona no 'staging area' para depois comitar no repositorio
+-git add -A
+-git add --all
+-git add .
+-git add "arvuivo_especifico"
+
+git status
+-mostra as diferenças 
+-diz se está no staging area ou não
+
+git commit
+-comita localmente
+-git commit -m "mensagem qualquer"     (m de msg)
+
+git log
+-git log --oneline
+-git log --oneline --decorate
+-git log --oneline --decorate --all
+
+git branch
+-é nova linha de desenvolvimento que permite isolar o código de uma funcionalidade, mantendo a linha base estável
+-ramificação que permite isolar o desenvolvimento de uma nova feature ou a correção de um defeito
+-evitar o represemento de código, pq é bom comitar bastante para não estragar a história dos códigos
+-*master é o padrão
+-git branch nova_feature 
+-git checkout nova_feature (para mudar a branch)
+-git checkout -b nova_feature2  (com o "-b", você cria a branch e já da o checkout de um vez só)
+
+git merge
+-git merge nova_feature
+-git branch -d nova_feature   (para deletar a branch dps de usar)
+
+git push(empurra)
+-atualiza uma referência remota a partir de uma referencia local
+-git remote add origin https://github.com/viniazvd/be-mean-instagram-mongodb.git
+-git push origin master
+-git push -u (???)
+
+git pull(puxa)
+-atualiza uma referência local a partir de uma referência remota
+-git pull origin master
+
+git clone
+-git clone url 
+
+git fetch
+-faz o pull pela metade
+-só tras as atualizacoes e aplica
+-origin master fica com essa referencia
+-não faz merge
+
+git diff master origin/master
+-ve as diferenças
+
+git merge origin/master
+-faz o merge entre eles
+
+git reset - ?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
