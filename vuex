@@ -1,0 +1,44 @@
+vuex:
+
+estrutura/gerenciador  de dados global, ou seja, que esta a disposicao de todos os componentes da aplicação
+
+podemos dizer então que em cada componente podemos chamar a store com: this.$store...
+this será o proprio componente e apos $store, podemos chamar state, getters etc
+
+além do boilerplate, ele possui um chato processo burocrático, mas que garante o fluxo unidirecional(eventos e ouvintes) da informação.
+ou seja, qualquer componente pode solicitar a mudança do state, mas ela só é feita pela commit da store(action).  
+
+vantagem: deixa rastro (vuedevtools)
+
+state: 
+-como se fosse o data de um componente
+-não é permitido mudar um state diretamente associando um valor a ele
+
+mutation:
+-e quem recebe os dados e commita de fato o state
+-pode realizar mutações dos dados como: cache, formatações ou mandar para o localStorage por exemplo
+-é um método usado para mudar um state
+-é uma convenção definir os nomes das mutations com letras maiusculas
+-possui um argumento por default (state) e outro opcional (payload)
+-payload: objetos com informações que você irá fornecer para a mutation
+
+action:
+-é aonde de fato ocorre a mudança(commit)
+-utilizando mutations para alterar um state
+-podem usar ações assincronas (como requisições http)
+-a melhor pratica e a mais avançada é o uso das actions, mas ela é opcional
+-ou seja, você poderia chamar em um componente: this.$store.commit('ALGUMA_MUTATION', payload)
+-no arquivo das actions, temos o método com 2 parametros: context e payload
+-context: ele é a store
+-payload: objetos com informações que você irá fornecer para a mutation
+-context.commit('ALGUMA_MUTATION', payload)
+-com essa abordagem, no componente nos chamariamos a action da seguinte forma: this.$store.dispatch('ALGUMA_MUTATION', payload)
+
+getters
+-forma como obtém um state
+-ou seja, qualquer alteracao no state no formato que quiser 
+-funcionam como computed properties
+
+
+vale salientar que os states se mantem com a troca de rotas, mas apenas em tempo de aplicação
+uma solução para armazená-los mesmo após um refresh é guardar na localStorage

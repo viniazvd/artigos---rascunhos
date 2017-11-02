@@ -1,0 +1,112 @@
+higher-Order Functions
+-funções que operam sobre outras funções ou as recebendo como parâmetro ou as retornando.
+
+funções 
+-são valores
+
+compose
+-função dentro de outra
+-permite criar uma nova função a partir da combinação de outras funções
+-o resultado de uma função é passado como argumento para a próxima função, até que todas as funções tenham sido executadas.
+-compor funções pequenas para gerar outras mais complexas
+-vantagem é o poder de usar essas funções mais complexas, de forma simples, em toda aplicação(reuso).
+
+callback
+-funções que vc envia pra outras funções como parametro
+-são chamadas assim pq a função hospedeira vai chamá-l de volta
+
+closures
+-corpo da função tem acesso a váriaveis que estão definidas fora do seu escopo 
+
+currying
+-é o processo de transformar uma função com muitos argumentos na mesma função com menos argumentos.
+-passa argumentos parcialmente para uma função.
+-se uma função precisa de 3 argumentos para ser executada, ao passar um argumento para ela, o resultado será uma nova função que 
+aceita dois parametros. Este processo se repete até que todos os argumentos tenham sido passados.
+-técnica de transformar uma função com múltiplos parâmetros em uma sequência de funções que aceitam apenas um parâmetro.
+-ação de pegar uma função que receba múltiplos argumentos e transforma-la em uma cadeia de funções, em que cada uma receba somente um parâmetro.
+
+recursion/recursividade
+-quando uma função chama ela mesma.
+-tail call (não estora pilha)
+
+filter
+-tem uma outra função(callback) como parametro.
+-retorna true ou false para determinar se o ítem deve ou não ser incluído no array.
+-método retorna um array menor e modificado pela lógica do callback.
+-invoca um callback e retorna um novo array com o resultado filtrado dos elementos baseado no callback aplicado em cada item do array inicial.
+
+map
+-tem uma outra função(callback) como parametro.
+-método que retorna um array do mesmo tamanho, porém, modificado pela lógica do callback.
+-invoca um callback e retorna um novo array com o resultado desse callback aplicado em cada item do array inicial.
+
+reduce
+-recebe como parâmetro um callback e um valor inicial, com o objetivo de reduzir o array a um único valor.
+
+Array.from()
+-Array.from('hello'); // ['h', 'e', 'l', 'l', 'o']
+-Array.from([1, 2, 3]); // [1, 2, 3]
+-let namesSet = new Set(['jamie', 'jack']); 
+ Array.from(namesSet); // ['jamie', 'jack']
+
+forEach
+-
+
+join
+-
+
+split()
+-divide um objeto string em um array de strings ao separar a string em substrings.
+-retorna um array de strings dividido em cada ponto onde o separador ocorre na string informada.
+
+str.split([separador[, limite]])
+-se o separador não for encontrado ou for omitido, o array irá conter um elemento consistindo da string inteira. 
+-se o separador é uma string vazia, str será convertido em um array de caracteres.
+
+Object.assign
+-soma objetos
+
+Object.keys(obj)
+-retorna um array cujo os  elementos são strings correspondentes para a propriedade enumerável encontrada diretamento sobre o objeto.
+var arr = ['a', 'b', 'c'];
+console.log(Object.keys(arr)); // console: ['0', '1', '2']
+
+Object.assign()
+-copia apenas propriedades enumeráveis e próprias de um objeto de origem para um objeto destino
+
+indexOf()
+-compara o elementoDePesquisa com os elementos do Array 
+-retorna o primeiro índice em que o elemento pode ser encontrado no array. 
+-retorna -1 caso o mesmo não esteja presente.
+
+-array.indexOf(elementoDePesquisa[, pontoInicial = 0])
+-se o índice for maior ou igual ao tamanho do array, é retornado -1 e signfica que o item não será procurado. 
+-se o pontoInicial é fornecido com um número negativo,  é tomado como deslocamento da extremidade do array. 
+-(se o pontoInicial fornecido é negativo, a procura no array acontece de frente para trás)
+-se o pontoInicial calculado é menor que 0, então o array inteiro será pesquisado. 
+-padrão: 0 (pesquisa em todo array).
+
+includes() 
+-determina se um array contém um determinado elemento, retornando true ou false apropriadamente.
+
+Array.prototype.find()
+-retorna o primeiro que encontrar e para a busca
+
+Array.prototype.findIndex()
+-retorna o elemento que corresponde ao índice desse elemento.
+
+has()
+-retorna um booleano indicando se um elemento com a chave especificada existe ou não.
+var myMap = new Map();
+myMap.set('bar', "foo");
+
+myMap.has('bar');  // returns true
+myMap.has('baz');  // returns false
+
+join() 
+-junta todos os elementos de uma array dentro de uma string.
+
+
+
+
