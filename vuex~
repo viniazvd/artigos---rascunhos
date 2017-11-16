@@ -47,10 +47,5 @@ getters
 -util para obter regras de negocio mais complexas
 -são extremamente úteis, seu funcionamento é basicamente o mesmo de computeds, geram valores com base em outros valores.
 
-types
--opcional
--usado nos objetos acima para evitar conflito/duplicação nos modulos
--bom para deixar rastros no devtools 
-
 vale salientar que os states se mantem com a troca de rotas, mas apenas em tempo de aplicação
 uma solução para armazená-los mesmo após um refresh é guardar na localStorage

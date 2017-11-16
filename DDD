@@ -1,0 +1,25 @@
+units 
+-Unidades podem depender de ambos suporte e Domínio
+-rotas, middlewares
+-camada I/O (entrada e saída)
+-controllers 
+-repositorios
+-não possui regras de negócio (não ficariam as querys por exemplo)
+
+support 
+-não deve depender do domínio ou das Unidades
+-coisas q ajudam domains e units
+-basicamente qqr coisa q não é um dominio, mas ajuda os dominios ou unidades/app
+-não possui regras de negócio
+-algo abstraível, que pode ser reaproveitado de uma aplicação para outra outra
+
+domains 
+-pode depender de support, mas não das unidades
+-assunto/contexto 
+-não é necessáriamente uma entidade
+-regras de negócio (como acesso banco de dados, validar e persistir informações)
+-serviços
+-não tem acesso a camada http
+
+ 
+
