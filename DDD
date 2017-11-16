@@ -1,7 +1,7 @@
 units 
 -Unidades podem depender de suporte e Domínio
 -camada I/O (entrada e saída)
--controllers e repositorios
+-controllers 
 -não possui regras de negócio
 -rotas, middlewares
 
@@ -17,7 +17,7 @@ domains
 -assunto/contexto 
 -não é necessáriamente uma entidade
 -regras de negócio (como acesso banco de dados, validar e persistir informações)
--serviços
+-serviços e repositorios
 -não tem acesso a camada http
 
  
