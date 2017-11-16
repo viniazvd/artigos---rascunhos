@@ -7,10 +7,10 @@ units
 
 support 
 -não deve depender de domínio unidades
+-coisas q ajudam domains e units
 -basicamente qqr coisa q não é um dominio, mas ajuda os dominios ou unidades/app
 -não possui regras de negócio
 -algo abstraível, que pode ser reaproveitado de uma aplicação para outra outra
--coisas q ajudam domains e units
 
 domains 
 -pode depender de support, mas não das unidades
